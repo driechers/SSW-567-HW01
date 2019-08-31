@@ -1,61 +1,68 @@
 #!/usr/bin/python3
 
-import pytest
+from classify import classify_triangle
 
-# The first set of test cases test the is_xyz functions
+import pytest
 
 def test_invalid_zero():
     """
     Test that an null size triangle returns 'invalid'
     """
-    assert 1 == 0
+    assert 'invlaid' == classify_triangle(0,0,0)
 
 def test_inf():
     """
-    Test that a invlaid triangle with an infinite length returns 'invalid'
+    Test that an invlaid triangle with an infinite length returns 'invalid'
     """
-    assert 1 == 0
+    assert 'invlaid' == classify_triangle(1,2,float('inf'))
 
 def test_nan():
     """
-    Test that a invlaid triangle with a not a number length returns 'invalid'
+    Test that an invlaid triangle with a not a number length returns 'invalid'
     """
-    assert 1 == 0
+    assert 'invlaid' == classify_triangle(1,2,float('nan'))
 
 def test_invalid_scalene():
     """
     Test that an invlaid triangle with three different lengths returns 'invalid'
     """
-    assert 1 == 0
+    assert 'invlaid' == classify_triangle(1,2,3)
 
 def test_invalid_isosceles():
     """
     Test that an invlaid triangle with two equal sides returns 'invalid'
     """
-    assert 1 == 0
+    assert 'invlaid' == classify_triangle(1,1,3)
 
-def test_equalateral():
+def test_equilateral():
     """
-    Test that a triangle with three equal sides returns 'equalateral'
-    Note: equalateral triangles are also isosceles
+    Test that a triangle with three equal sides returns 'equilateral'
+    Note: equilateral triangles are also isosceles
     """
-    assert 1 == 0
+    assert 'equilateral' == classify_triangle(1.2,1.2,1.2)
 
 def test_isosceles():
     """
     Test that a triangle with two equal sides returns 'isosceles'
     """
-    assert 1 == 0
+    assert 'isosceles' == classify_triangle(2,2,3)
 
 def test_scalene():
     """
     Test that a triangle with three differnt sides returns 'scalene'
     """
-    assert 1 == 0
+    assert 'scalene' == classify_triangle(2,3,4)
 
 def test_right():
     """
     Test that a tirangle with a**2 + b**2 = c**2 triangle returns 'right'
     Note: right triangles are also scalene.
     """
-    assert 1 == 0
+    assert 'right' == classify_triangle(3,4,5)
+
+def test_right_order():
+    """
+    Test that a tirangle with a**2 + b**2 = c**2 triangle return 'right' even when c is not the third parameter
+    Note: right triangles are also scalene.
+    """
+    assert 'right' == classify_triangle(5,3,4)
