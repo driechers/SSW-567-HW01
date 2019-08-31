@@ -8,31 +8,31 @@ def test_invalid_zero():
     """
     Test that an null size triangle returns 'invalid'
     """
-    assert 'invlaid' == classify_triangle(0,0,0)
+    assert 'invalid' == classify_triangle(0,0,0)
 
 def test_inf():
     """
-    Test that an invlaid triangle with an infinite length returns 'invalid'
+    Test that an invalid triangle with an infinite length returns 'invalid'
     """
-    assert 'invlaid' == classify_triangle(1,2,float('inf'))
+    assert 'invalid' == classify_triangle(1,2,float('inf'))
 
 def test_nan():
     """
-    Test that an invlaid triangle with a not a number length returns 'invalid'
+    Test that an invalid triangle with a not a number length returns 'invalid'
     """
-    assert 'invlaid' == classify_triangle(1,2,float('nan'))
+    assert 'invalid' == classify_triangle(1,2,float('nan'))
 
 def test_invalid_scalene():
     """
-    Test that an invlaid triangle with three different lengths returns 'invalid'
+    Test that an invalid triangle with three different lengths returns 'invalid'
     """
-    assert 'invlaid' == classify_triangle(1,2,3)
+    assert 'invalid' == classify_triangle(1,2,3)
 
 def test_invalid_isosceles():
     """
-    Test that an invlaid triangle with two equal sides returns 'invalid'
+    Test that an invalid triangle with two equal sides returns 'invalid'
     """
-    assert 'invlaid' == classify_triangle(1,1,3)
+    assert 'invalid' == classify_triangle(1,1,3)
 
 def test_equilateral():
     """
